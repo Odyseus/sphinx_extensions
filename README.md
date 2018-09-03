@@ -37,3 +37,22 @@ In the .rst files use like follows:
 ```rst
 .. custom-literalinclude:: directive-argument
 ```
+
+## docopt docstrings extension for Sphinx.
+
+Similar to the `.. custom-literalinclude::` directive, but it slightly "highlights" the code.
+
+### Example
+
+In conf.py declare the extension option `docopt_docstrings`:
+
+docopt_docstrings = {
+    "directive-argument": dinamically_generated_data,
+}
+
+The `dinamically_generated_data` content can be anything from properties of an imported
+module or the return of a function and always have to be of type str (string).
+
+In the .rst files use like follows:
+
+.. docopt-docstring:: directive-argument
