@@ -40,7 +40,7 @@ In the .rst files use like follows:
 
 ## docopt docstrings extension for Sphinx.
 
-Similar to the `.. custom-literalinclude::` directive, but it slightly "highlights" the code.
+Similar to the custom literal include extension (`.. custom-literalinclude::` directive), but it slightly "highlights" the code.
 
 ### Example
 

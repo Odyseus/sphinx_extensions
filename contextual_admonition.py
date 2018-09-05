@@ -1,18 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Contextual admonition extension for Sphinx.
-
-Example
--------
-
-.. contextual-admonition::
-    :context: warning
-    :title: Title for the admonition
-
-    - Admonition text. This admonition will be stylized the same as the ``.. warning::``
-    directive (defined in ``:context:``), but with a custom title as defined by ``:title:``.
-"""
-
 import sphinx
 
 from docutils import nodes
