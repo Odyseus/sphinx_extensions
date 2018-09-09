@@ -37,7 +37,7 @@ class ContextualAdmonition(Directive):
         admonition_node += messages
 
         if "classes" not in self.options:
-            admonition_node["classes"] += ["admonition-" + nodes.make_id(title_text)]
+            admonition_node["classes"] += ["admonition-" + self.options.get("context", "info")]
 
         admonition_node["classes"] += [self.options.get("context", "info")]
 
