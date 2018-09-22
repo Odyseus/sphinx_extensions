@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import re
 import sphinx
 
 from docutils import nodes
@@ -8,6 +9,8 @@ from sphinx.util.nodes import set_source_info
 
 from html import escape as escape_html
 
+bold_markdown_re = re.compile(r"\*\*([^\*\*]*)\*\*")
+bold_rendered_markdown_placeholder = r'<span class="text-bold">\1</span>'
 
 container = """<div class="highlight-default notranslate"><div class="highlight">
 <pre>%s</pre>
@@ -36,10 +39,14 @@ class DocoptDoctring(Directive):
             lines = []
 
             for line in text.strip("\n").splitlines():
+                line = escape_html(line)
+                line = re.sub(bold_markdown_re, bold_rendered_markdown_placeholder, line)
+
                 if line.startswith((" ", "\t")):
-                    lines.append(escape_html(line))
+                    lines.append(line)
                 else:
-                    lines.append('<span class="text-bold">%s</span>' % escape_html(line) if line else "")
+                    lines.append('<span class="text-bold">%s</span>' %
+                                 line if line else "")
 
             text = "\n".join(lines)
 
