@@ -10,7 +10,7 @@ from sphinx.util.nodes import set_source_info
 from html import escape as escape_html
 
 bold_markdown_re = re.compile(r"\*\*([^\*\*]*)\*\*")
-bold_rendered_markdown_placeholder = r'<span class="text-bold">\1</span>'
+bold_rendered_markdown_placeholder = r'<strong>\1</strong>'
 
 container = """<div class="highlight-default notranslate"><div class="highlight">
 <pre>%s</pre>
@@ -45,7 +45,7 @@ class DocoptDoctring(Directive):
                 if line.startswith((" ", "\t")):
                     lines.append(line)
                 else:
-                    lines.append('<span class="text-bold">%s</span>' %
+                    lines.append('<strong>%s</strong>' %
                                  line if line else "")
 
             text = "\n".join(lines)
